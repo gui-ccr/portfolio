@@ -22,7 +22,7 @@ export function AboutSection() {
     if (videoRef.current) {
       const savedVolume = volume;
       videoRef.current.volume = savedVolume;
-      videoRef.current.muted = true; 
+      videoRef.current.muted = true;
       videoRef.current.play().catch(() => {
       });
     }
@@ -53,7 +53,7 @@ export function AboutSection() {
           y: 0,
           duration: 0.6,
           ease: 'back.out(1.7)',
-          stagger: 0.15, 
+          stagger: 0.15,
           scrollTrigger: { trigger: '.about-text', start: 'top 85%' },
         }
       )
@@ -199,7 +199,12 @@ export function AboutSection() {
 
             {/* Adicionei a classe 'about-text-box' aqui para ele flutuar isolado dos stats */}
             <div className="about-text-box border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-bg">
-              <div className="bg-accent-yellow border-b-2 border-black px-5 py-3">
+              <div className="flex items-center gap-3 bg-accent-yellow border-b-2 border-black px-5 py-3">
+                <div className="flex gap-1.5">
+                  <span className="w-3 h-3 rounded-full bg-red-500 border border-black inline-block cursor-pointer" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400 border border-black inline-block cursor-pointer" />
+                  <span className="w-3 h-3 rounded-full bg-green-500 border border-black inline-block cursor-pointer" />
+                </div>
                 <span className="font-mono font-black text-sm tracking-widest text-black">
                   README.md
                 </span>

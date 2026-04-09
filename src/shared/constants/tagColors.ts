@@ -12,6 +12,8 @@ export const TAG_COLORS: Record<string, TagColor> = {
   BOOTSTRAP:      { bg: '#7952B3', text: '#ffffff' },
   MUI:            { bg: '#007FFF', text: '#ffffff' },
   VITE:           { bg: '#646CFF', text: '#ffffff' },
+  GSAP:           { bg: '#2fea56', text: '#000000' },
+
   // Back-End
   'NODE.JS':      { bg: '#339933', text: '#ffffff' },
   EXPRESS:        { bg: '#868686', text: '#ffffff' },
