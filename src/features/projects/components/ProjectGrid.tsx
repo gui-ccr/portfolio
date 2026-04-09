@@ -12,14 +12,14 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ projects }) => {
         <section className="py-12 px-4 md:px-8 max-w-7xl mx-auto w-full">
             
             {/* Título da Seção no estilo Terminal */}
-            <div className="mb-10 flex items-center gap-4">
-                <h2 className="font-mono font-black text-2xl md:text-3xl text-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)">
-                    Projetos que trabalhei!
+            <div className="flex items-center gap-4">
+                <h2 className="mb-16 font-mono font-black text-xl md:text-2xl lg:text-3xl text-black px-4 py-2 break-all ">
+                    C:\USERS\GUILHERME\DESKTOP\PROJETOS_FINAIS_MESMO_V3_AGORA_VAI\
                 </h2>
-                <div className="h-[2px] flex-1 bg-black hidden md:block"></div>
+                <div className="h-0.5 flex-1 bg-black hidden md:block"></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 pt-6">
                 {projects.map((project, index) => {
                     
                     // 1. O Destaque sempre ocupa 2 colunas

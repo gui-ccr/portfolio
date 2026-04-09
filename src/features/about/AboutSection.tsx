@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Volume2, VolumeX } from 'lucide-react' // Opcional: ícones para o UI
+// import { Volume2, VolumeX } from 'lucide-react' // Opcional: ícones para o UI
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -107,19 +107,19 @@ export function AboutSection() {
   }, [])
 
 
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseFloat(e.target.value);
-    setVolume(newVolume);
-
-    if (videoRef.current) {
-      videoRef.current.volume = newVolume;
-      // Se o usuário arrastou a barra para cima de 0, 
-      // nós desligamos o 'muted' nativo do elemento
-      videoRef.current.muted = newVolume === 0;
-    }
-
-    localStorage.setItem('volume-video', newVolume.toString());
-  };
+  // const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const newVolume = parseFloat(e.target.value);
+  //   setVolume(newVolume);
+  //
+  //   if (videoRef.current) {
+  //     videoRef.current.volume = newVolume;
+  //     // Se o usuário arrastou a barra para cima de 0, 
+  //     // nós desligamos o 'muted' nativo do elemento
+  //     videoRef.current.muted = newVolume === 0;
+  //   }
+  //
+  //   localStorage.setItem('volume-video', newVolume.toString());
+  // };
   return (
     <section
       id="sobre"
@@ -142,62 +142,30 @@ export function AboutSection() {
 
           {/* Coluna: Foto */}
           <div className="about-photo flex flex-col items-center lg:items-start gap-6">
-            <div className="relative">
+            <div className="relative group">
               {/* Sombra deslocada */}
               <div className="absolute inset-0 translate-x-3 translate-y-3 bg-accent-yellow border-2 border-black" />
 
               {/* Moldura principal */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 border-4 border-black bg-accent-yellow overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
 
-                {/* O Fallback (Placeholder) fica por baixo (z-0) para aparecer enquanto o vídeo carrega */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-accent-yellow z-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 text-black opacity-40">
-                    <circle cx="12" cy="8" r="4" />
-                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                  </svg>
-                  <span className="font-mono font-black text-xs text-black opacity-40 tracking-widest">LOADING.MP4</span>
-                </div>
-
-                {/* A Tag de Vídeo - Fica por cima (z-10) */}
-                <video
-                  ref={videoRef}
-                  src="/eu.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="relative z-10 w-full h-full object-cover"
+                {/* A Foto */}
+                <img
+                  src="/eu.jpg" 
+                  alt="Guilherme - Desenvolvedor"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 z-10 relative"
                 />
-                <div className="absolute top-3 left-3 z-20 bg-black text-accent-yellow font-mono font-black text-xs px-2 py-0.5 border border-black">
-                  LIVE_FEED.MP4
+
+                <div className="absolute top-3 left-3 z-20 bg-black text-white font-mono font-black text-xs px-2 py-0.5 border-2 border-black">
+                  GUILHERME.JPG
                 </div>
               </div>
+
             </div>
-
-            <div className="relative z-10 flex items-center justify-between gap-4 bg-bg border-2 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-64 md:w-80">
-              {volume === 0 ? <VolumeX size={20} className="text-black" /> : <Volume2 size={20} className="text-black" />}
-
-              <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.01"
-                value={volume}
-                onChange={handleVolumeChange}
-                className="flex-1 accent-black cursor-pointer"
-              />
-
-              <span className="font-mono font-black text-xs w-10 text-right text-black">
-                {Math.round(volume * 100)}%
-              </span>
-            </div>
-
           </div>
 
           {/* Coluna: Texto e Stats */}
           <div className="about-text flex flex-col gap-6">
-
-            {/* Adicionei a classe 'about-text-box' aqui para ele flutuar isolado dos stats */}
             <div className="about-text-box border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-bg">
               <div className="flex items-center gap-3 bg-accent-yellow border-b-2 border-black px-5 py-3">
                 <div className="flex gap-1.5">
