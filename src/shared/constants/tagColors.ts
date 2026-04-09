@@ -25,4 +25,15 @@ export const TAG_COLORS: Record<string, TagColor> = {
   GITHUB:         { bg: '#6E40C9', text: '#ffffff' },
   DOCKER:         { bg: '#2496ED', text: '#ffffff' },
   BUN:            { bg: '#FBF0DF', text: '#000000' },
+  // Engineering & Architecture
+  'SOLID':            { bg: '#2D3748', text: '#ffffff' }, 
+  'CLEAN_CODE':       { bg: '#276749', text: '#ffffff' }, 
+  'CLEAN_ARCH':       { bg: '#1A365D', text: '#ffffff' }, 
+  'DDD':              { bg: '#553C9A', text: '#ffffff' }, 
+  'TDD':              { bg: '#9B2C2C', text: '#ffffff' }, 
+  'REST_API':         { bg: '#2B6CB0', text: '#ffffff' }, 
+  'DESIGN_PATTERNS':  { bg: '#2D3748', text: '#ffffff' }, 
+  'CRUD':             { bg: '#4A5568', text: '#ffffff' }, 
+  'DRY_KISS':         { bg: '#744210', text: '#ffffff' }, 
+  'MVC':              { bg: '#2C5282', text: '#ffffff' }, 
 }
