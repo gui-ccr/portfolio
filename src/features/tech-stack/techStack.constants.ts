@@ -28,8 +28,9 @@ export const STACK_SECTIONS: StackSection[] = [
       "CLEAN_CODE",
       "DESIGN_PATTERNS",
       "REST_API",
-      "TDD",
-      "DRY_KISS",
+      "DDD",
+      "DRY",
+      "KISS",
       "MVC_ARCHITECTURE"
     ]
   }
