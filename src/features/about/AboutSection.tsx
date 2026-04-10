@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [volume, setVolume] = useState(() => {
+  const [volume] = useState(() => {
     if (typeof window !== 'undefined') {
       const volumeSalvo = localStorage.getItem('volume-video')
       if (volumeSalvo !== null) {
@@ -125,16 +125,16 @@ export function AboutSection() {
       id="sobre"
       ref={sectionRef}
       // Layout centralizado ocupando a tela toda
-      className="bg-bg min-h-screen px-8 md:px-20 py-20 flex items-center justify-center"
+      className="bg-bg min-h-screen px-4 sm:px-6 md:px-8 lg:px-20 py-16 sm:py-20 flex items-center justify-center overflow-hidden"
     >
       <div className="max-w-6xl mx-auto w-full">
 
         {/* Cabeçalho da Seção */}
-        <div className="mb-14 flex items-center gap-4">
-          <h2 className="font-mono font-black text-4xl md:text-5xl text-black tracking-tight">
+        <div className="mb-10 sm:mb-14 flex items-center gap-4">
+          <h2 className="font-mono font-black text-3xl sm:text-4xl md:text-5xl text-black tracking-tight flex-shrink-0">
             sobre_mim<span className="cursor-blink ml-0.5">_</span>
           </h2>
-          <div className="flex-1 h-1 bg-black" />
+          <div className="flex-1 h-1 bg-black hidden sm:block" />
         </div>
 
         {/* Grid de Conteúdo */}
@@ -165,7 +165,7 @@ export function AboutSection() {
           </div>
 
           {/* Coluna: Texto e Stats */}
-          <div className="about-text flex flex-col gap-6">
+          <div className="about-text flex flex-col gap-10 sm:gap-12">
             <div className="about-text-box border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-bg">
               <div className="flex items-center gap-3 bg-accent-yellow border-b-2 border-black px-5 py-3">
                 <div className="flex gap-1.5">

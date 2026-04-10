@@ -56,18 +56,20 @@ export function Hero() {
   return (
     <main
       ref={containerRef}
-      className="flex-1 bg-[#F3F0E0] px-8 md:px-20 py-16 md:py-20 flex items-center justify-center"
+      className="flex-1 px-4 sm:px-6 md:px-8 lg:px-20 py-10 sm:py-12 md:py-20 flex items-center justify-center overflow-x-hidden min-h-[calc(100vh-100px)] lg:min-h-auto"
     >
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
 
         {/* Left column */}
-        <div className="flex flex-col gap-6 px-2 md:px-4 lg:px-0 lg:pl-6">
+        <div className="flex flex-col gap-6 lg:pl-6 w-full max-w-lg lg:max-w-none mx-auto lg:mx-0">
           <InfoCard />
           <TechStrip />
         </div>
 
         {/* Right column */}
-        <IdeWindow />
+        <div className="w-full max-w-lg lg:max-w-none mx-auto lg:mx-0 pr-4 sm:pr-6 md:pr-0">
+          <IdeWindow />
+        </div>
 
       </div>
     </main>
