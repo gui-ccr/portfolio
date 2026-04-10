@@ -1,11 +1,7 @@
 import React from 'react';
-import { useRef, useEffect } from 'react';
-import { type ProjectCardProps } from '../types/ProjectCardProps';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { TAG_COLORS } from '../../../shared/constants/tagColors';
-
-gsap.registerPlugin(ScrollTrigger);
+import {type ProjectCardProps } from '../../../types/ProjectCardProps'; // Verifique se o caminho da sua tipagem está correto
+// 1. IMPORTANTE: Importe o seu objeto de cores aqui! Ajuste o caminho conforme sua pasta
+import { TAG_COLORS } from '../../../shared/constants/tagColors'; 
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
@@ -17,63 +13,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   githubUrl,
   isFeatured
 }) => {
-
-const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Definimos refs para os elementos internos que queremos animar
-    // (Poderíamos usar seletores de classe com o ctx, que é mais fácil)
-    const ctx = gsap.context(() => {
-      
-      // Criamos uma timeline para melhor orquestração (O PULO DO GATO!)
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: "top 85%",
-          toggleActions: "play none none none"
-        },
-        // Ao terminar a entrada, começamos a flutuação
-        onComplete: () => startFloating() 
-      });
-
-      // 1. ANIMAÇÃO DE ENTRADA DO CARD INTEIRO
-      tl.from(cardRef.current, {
-        y: 60,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power3.out",
-      })
-      // 2. ENTRADA ESCALONADA DOS ELEMENTOS INTERNOS
-      .from(
-        [".category-label", ".card-image-container", ".card-content > *"], 
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: "power2.out"
-        },
-        "-=0.3" // Inicia ligeiramente antes de o card terminar de subir
-      );
-
-      // 3. FUNÇÃO DE FLUTUAÇÃO AMBIENTAL (Movimento infinito)
-      const startFloating = () => {
-        gsap.to(cardRef.current, {
-          y: "random(-6, 6)", // Movimento vertical sútil
-          rotation: "random(-1, 1)", // Rotação bem mínima
-          duration: "random(3, 5)", // Lento e aleatório
-          repeat: -1, 
-          yoyo: true, 
-          ease: "sine.inOut",
-          delay: Math.random() * 1 // Delay aleatório
-        });
-      };
-
-    }, cardRef);
-
-    return () => ctx.revert(); // Limpeza total de memória
-  }, []);
-
   const categoryColors = {
     FREELANCE: 'bg-[#3ECF8E]',
     PERSONAL: 'bg-[#61DAFB]',
@@ -81,22 +20,24 @@ const cardRef = useRef<HTMLDivElement>(null);
   };
 
   return (
-    
-    <div ref={cardRef} className="h-full">
-      <div
-        className={`group relative bg-white border-4 border-black p-5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 cursor-pointer flex flex-col h-full ${isFeatured ? 'md:flex-row md:items-stretch md:gap-8' : 'gap-5'
-          }`}
-      >
+    // 2. CORREÇÃO DE HOVER (Container): Adicionamos hover:-translate-x-1 e hover:-translate-y-1
+    // Isso faz o card inteiro subir enquanto a sombra cresce, dando sensação de peso físico.
+    <div 
+      className={`group relative bg-white border-4 border-black p-5 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 cursor-pointer flex flex-col ${
+        isFeatured ? 'md:flex-row md:items-stretch md:gap-8' : 'gap-5'
+      }`}
+    >
       {/* Label de Categoria */}
-      <div className={`category-label absolute -top-4 -right-2 z-20 border-2 border-black px-4 py-1 font-mono font-black text-xs uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${categoryColors[category]}`}>
+      <div className={`absolute -top-4 -right-2 z-20 border-2 border-black px-4 py-1 font-mono font-black text-xs uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${categoryColors[category]}`}>
         {category}
       </div>
 
       {/* Container da Imagem */}
-      <div className={`card-image-container relative border-2 border-black bg-gray-200 overflow-hidden shrink-0 ${isFeatured ? 'w-full md:w-[50%] aspect-video' : 'w-full aspect-video'
-        }`}>
-        <img
-          src={thumbnail}
+      <div className={`relative border-2 border-black bg-gray-200 overflow-hidden shrink-0 ${
+        isFeatured ? 'w-full md:w-[50%] aspect-video' : 'w-full aspect-video'
+      }`}>
+        <img 
+          src={thumbnail} 
           alt={title}
           // Mantemos o grayscale/colorido/zoom para somar ao efeito do card
           className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
@@ -105,15 +46,17 @@ const cardRef = useRef<HTMLDivElement>(null);
       </div>
 
       {/* Conteúdo (Texto e Botões) */}
-      <div className={`card-content flex flex-col flex-1 w-full ${isFeatured ? 'justify-center' : ''}`}>
-
-        <h3 className={`font-black uppercase italic tracking-tighter text-black ${isFeatured ? 'text-3xl md:text-4xl mb-4' : 'text-2xl mb-3'
-          }`}>
+      <div className={`flex flex-col flex-1 w-full ${isFeatured ? 'justify-center' : ''}`}>
+        
+        <h3 className={`font-black uppercase italic tracking-tighter text-black ${
+          isFeatured ? 'text-3xl md:text-4xl mb-4' : 'text-2xl mb-3'
+        }`}>
           {title}
         </h3>
-
-        <p className={`font-medium text-sm md:text-base text-gray-800 leading-relaxed mb-6 ${isFeatured ? 'text-3xl md:text-4xl mb-4' : 'text-xl mb-4'
-          }`}>
+        
+        <p className={`font-medium text-sm md:text-base text-gray-800 leading-relaxed mb-6 ${
+          isFeatured ? 'text-3xl md:text-4xl mb-4' : 'text-xl mb-4'
+        }`}>
           {description}
         </p>
 
@@ -122,13 +65,13 @@ const cardRef = useRef<HTMLDivElement>(null);
           {tags.map((tag) => {
             // Normalizamos para MAIÚSCULO para bater com o objeto de cores
             const normalizedTag = tag.toUpperCase();
-
+            
             // Buscamos a cor no objeto. Se não existir, usamos um fallback sóbrio
             const colorData = TAG_COLORS[normalizedTag] || { bg: '#F9FAFB', text: '#000000' };
 
             return (
-              <span
-                key={tag}
+              <span 
+                key={tag} 
                 // Aplicamos as cores dinamicamente via style
                 style={{ backgroundColor: colorData.bg, color: colorData.text }}
                 // Mantemos as classes de borda pesada e fonte mono
@@ -141,18 +84,18 @@ const cardRef = useRef<HTMLDivElement>(null);
         </div>
 
         {/* Botões */}
-        <div className="card-buttons flex flex-wrap sm:flex-nowrap gap-3 mt-auto w-full">
-          <a
-            href={liveUrl}
+        <div className="flex flex-wrap sm:flex-nowrap gap-3 mt-auto w-full">
+          <a 
+            href={liveUrl} 
             target="_blank"
             rel="noreferrer"
             className="flex-1 min-w-[150px] bg-black text-white font-black text-center py-3 px-4 text-xs md:text-sm hover:bg-zinc-800 transition-colors border-2 border-black"
           >
             VIEW_LIVE.EXE
           </a>
-
+          
           {githubUrl && (
-            <a
+            <a 
               href={githubUrl}
               target="_blank"
               rel="noreferrer"
@@ -164,7 +107,6 @@ const cardRef = useRef<HTMLDivElement>(null);
         </div>
 
       </div>
-    </div>
     </div>
   );
 };
