@@ -59,8 +59,8 @@ const cardRef = useRef<HTMLDivElement>(null);
       // 3. FUNÇÃO DE FLUTUAÇÃO AMBIENTAL (Movimento infinito)
       const startFloating = () => {
         gsap.to(cardRef.current, {
-          y: "random(-12, 12                                                   )", // Movimento vertical sútil para não conflitar com a sombra forte
-          rotation: "random(-1.8, 1.8)", // Rotação bem mínima
+          y: "random(-6, 6)", // Movimento vertical sútil
+          rotation: "random(-1, 1)", // Rotação bem mínima
           duration: "random(3, 5)", // Lento e aleatório
           repeat: -1, 
           yoyo: true, 
@@ -82,9 +82,9 @@ const cardRef = useRef<HTMLDivElement>(null);
 
   return (
     
-    <div ref={cardRef}>
+    <div ref={cardRef} className="h-full">
       <div
-        className={`group relative bg-white border-4 border-black p-5 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 cursor-pointer flex flex-col ${isFeatured ? 'md:flex-row md:items-stretch md:gap-8' : 'gap-5'
+        className={`group relative bg-white border-4 border-black p-5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:-translate-x-1 hover:-translate-y-1 cursor-pointer flex flex-col h-full ${isFeatured ? 'md:flex-row md:items-stretch md:gap-8' : 'gap-5'
           }`}
       >
       {/* Label de Categoria */}

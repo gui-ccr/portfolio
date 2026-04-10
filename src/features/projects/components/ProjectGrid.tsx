@@ -9,17 +9,17 @@ interface ProjectGridProps {
 export const ProjectGrid: React.FC<ProjectGridProps> = ({ projects }) => {
     return (
         // 1. O PULO DO GATO: max-w-7xl para limitar a largura, mx-auto para centralizar!
-        <section className="py-12 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full overflow-hidden">
             
             {/* Título da Seção no estilo Terminal */}
-            <div className="flex items-center gap-4">
-                <h2 className="mb-16 font-mono font-black text-xl md:text-2xl lg:text-3xl text-black px-4 py-2 break-all ">
+            <div className="flex items-center justify-center lg:justify-start gap-4 mb-4 sm:mb-8 md:mb-12">
+                <h2 className="font-mono font-black text-lg sm:text-xl md:text-2xl lg:text-3xl text-black px-2 sm:px-4 py-2 bg-[#F4DC5D] border-2 sm:border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] break-words text-center leading-tight">
                     C:\USERS\GUILHERME\DESKTOP\PROJETOS_FINAIS_MESMO_V3_AGORA_VAI\
                 </h2>
-                <div className="h-0.5 flex-1 bg-black hidden md:block"></div>
+                <div className="h-0.5 flex-1 bg-black hidden lg:block"></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-12 md:gap-16 lg:gap-12 mt-12 sm:mt-16 md:mt-20 pt-4 sm:pt-8 mx-auto w-full max-w-lg md:max-w-none">
                 {projects.map((project, index) => {
                     
                     // 1. O Destaque sempre ocupa 2 colunas
