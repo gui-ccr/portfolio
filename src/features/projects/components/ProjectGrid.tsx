@@ -13,8 +13,8 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ projects }) => {
             
             {/* Título da Seção no estilo Terminal */}
             <div className="mb-10 flex items-center gap-4">
-                <h2 className="font-mono font-black text-2xl md:text-3xl text-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)">
-                    Projetos que trabalhei!
+                <h2 className="font-mono font-black text-xl sm:text-2xl md:text-3xl text-black px-4 py-2 bg-[#F4DC5D] border-2 sm:border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] break-words text-center">
+                    C:\USERS\GUILHERME\DESKTOP\PROJETOS_FINAIS_MESMO_V3_AGORA_VAI\
                 </h2>
                 <div className="h-[2px] flex-1 bg-black hidden md:block"></div>
             </div>
