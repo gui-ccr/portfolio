@@ -36,6 +36,7 @@ export const TAG_COLORS: Record<string, TagColor> = {
   'REST_API':         { bg: '#2B6CB0', text: '#ffffff' }, 
   'DESIGN_PATTERNS':  { bg: '#2D3748', text: '#ffffff' }, 
   'CRUD':             { bg: '#4A5568', text: '#ffffff' }, 
-  'DRY_KISS':         { bg: '#744210', text: '#ffffff' }, 
+  'DRY':              { bg: '#744210', text: '#ffffff' }, 
+  'KISS':             { bg: '#d36bee', text: '#ffffff' }, 
   'MVC':              { bg: '#2C5282', text: '#ffffff' }, 
 }
