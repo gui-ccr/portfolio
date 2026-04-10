@@ -6,6 +6,8 @@ import { ContactSection } from './features/contact/ContactSection'
 import { MOCK_PROJECTS } from './shared/constants/MOCKS'
 import './App.css'
 
+
+
 export default function App() {
   return (
     <div className="flex flex-col min-h-screen bg-bg">

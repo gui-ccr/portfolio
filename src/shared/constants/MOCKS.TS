@@ -1,4 +1,3 @@
-// 1. MOCK DATA PROVISÓRIO (Para não quebrar a tela)
 export const MOCK_PROJECTS = [
     {
         id: 'agendai-saas',
