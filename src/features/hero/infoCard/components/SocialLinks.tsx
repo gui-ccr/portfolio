@@ -7,7 +7,7 @@ export function SocialLinks() {
     <>
       <div className="flex flex-wrap gap-2">
         <a
-          href="https://github.com"
+          href="https://github.com/gui-ccr"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 font-mono font-black text-xs
@@ -20,7 +20,7 @@ export function SocialLinks() {
           GITHUB
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/gui-ccr-/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 font-mono font-black text-xs
@@ -33,7 +33,7 @@ export function SocialLinks() {
           LINKEDIN
         </a>
         <a
-          href="https://wa.me"
+          href="https://wa.me/33998217341"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 font-mono font-black text-xs
